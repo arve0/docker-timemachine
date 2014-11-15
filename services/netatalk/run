@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# set password if defined (docker run -e "PASSWORD=asdf")
+if [-z "PASSWORD"];
+then 
+    echo Using default password: timemachine
+else
+    echo Setting password from environment variable
+    echo timemachine:$PASSWORD | chpasswd
+fi
+
 # wait for avahi-daemon
 sv start avahi || exit 1
 

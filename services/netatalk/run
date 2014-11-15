@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# wait for avahi-daemon
+sv start avahi || exit 1
+
+# run in foreground
+exec netatalk -d

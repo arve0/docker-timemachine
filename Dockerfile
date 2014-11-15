@@ -23,11 +23,11 @@ RUN \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # add user
-RUN useradd --home /timemachine -m timemachine
+RUN useradd --home /backup -m timemachine
 RUN echo timemachine:timemachine | chpasswd 
 
 # time machine volume
-VOLUME /timemachine
+VOLUME /backup
 
 # port
 EXPOSE 548
